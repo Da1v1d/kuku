@@ -1,5 +1,6 @@
 import "@/app/globals.css";
 import UIProvider from "@/processes/providers/next-ui-provider";
+import QueryProvider from "@/processes/providers/query-provider";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -15,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <UIProvider> {children}</UIProvider>
+        <QueryProvider>
+          <UIProvider> {children}</UIProvider>
+        </QueryProvider>
       </body>
     </html>
   );
