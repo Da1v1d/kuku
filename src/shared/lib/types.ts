@@ -1,2 +1,3 @@
-// eslint-disable-next-line
 export type TODO = any;
+
+export type Nullable<T> = T | null;
