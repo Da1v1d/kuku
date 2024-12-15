@@ -6,6 +6,7 @@ const useClient = () => {
   useEffect(() => {
     setIsClient(true);
   }, []);
+  
   return isClient;
 };
 

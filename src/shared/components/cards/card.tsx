@@ -5,6 +5,7 @@ import {
   CardFooter,
   CardHeader,
   CardProps,
+  cn,
   Card as NexCard,
 } from "@nextui-org/react";
 import { PropsWithChildren } from "react";
@@ -22,10 +23,11 @@ const CustomCard = ({
   footer,
   headerProps,
   footerProps,
+  className,
   ...props
 }: ExtendedCardProps) => {
   return (
-    <NexCard {...props}>
+    <NexCard className={cn("p-2", className)} {...props}>
       {!!header && <CardHeader {...headerProps}>{header}</CardHeader>}
       <CardBody>{children}</CardBody>
       {!!footer && <CardFooter {...footerProps}>{footer}</CardFooter>}

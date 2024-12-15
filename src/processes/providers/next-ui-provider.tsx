@@ -1,6 +1,6 @@
 "use client";
 
-import Client from "@/shared/components/client";
+import Client from "@/shared/components/@core/client";
 import { NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { useRouter } from "next/navigation";
