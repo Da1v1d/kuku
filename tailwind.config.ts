@@ -28,6 +28,13 @@ export default {
             },
           },
         },
+        light: {
+          colors: {
+            primary: {
+              DEFAULT: "#F15A29",
+            },
+          },
+        },
       },
     }),
   ],

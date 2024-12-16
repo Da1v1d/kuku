@@ -1,6 +1,6 @@
 import "@/app/globals.css";
-import UIProvider from "@/processes/providers/next-ui-provider";
-import QueryProvider from "@/processes/providers/query-provider";
+import UIProvider from "@/shared/providers/next-ui-provider";
+import QueryProvider from "@/shared/providers/query-provider";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,11 +14,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
-        <QueryProvider>
-          <UIProvider> {children}</UIProvider>
-        </QueryProvider>
+        <UIProvider>
+          <QueryProvider>{children}</QueryProvider>
+        </UIProvider>
       </body>
     </html>
   );

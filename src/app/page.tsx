@@ -1,5 +1,6 @@
 "use client";
 
+import ThemeSwitcher from "@/shared/components/@core/theme-switch";
 import { Button } from "@/shared/components/buttons";
 import { Card } from "@/shared/components/cards";
 import { Modal } from "@/shared/components/modals";
@@ -16,7 +17,7 @@ export default function Home() {
           <h1 className="text-2xl font-semibold">Hello World</h1>
         </div>
       </Card>
-
+      <ThemeSwitcher />
       <Select
         classNames={{
           base: "w-full max-w-[400px]",
@@ -31,7 +32,7 @@ export default function Home() {
           </SelectItem>
         )}
       </Select>
-      <Button >ok</Button>
+      <Button>ok</Button>
       <Modal
         isOpen={false}
         classNames={{
