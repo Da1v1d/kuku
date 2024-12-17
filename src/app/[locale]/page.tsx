@@ -6,6 +6,7 @@ import IconButton from "@/shared/components/buttons/icon-button";
 import { Card } from "@/shared/components/cards";
 import { Modal } from "@/shared/components/modals";
 import { Select, SelectItem } from "@/shared/components/selects";
+import Text from "@/shared/components/texts/text";
 import HeartIcon from "@/shared/icons/heart-icon";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
@@ -20,6 +21,8 @@ export default function Home() {
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+     
+     <Text className="text-4xl font-bold text-primary">Kuku</Text>
       <Card isHoverable isPressable header={<div></div>}>
         <div className="w-full h-full">
           <h1 className="text-2xl font-semibold">{t("general.welcome")}</h1>

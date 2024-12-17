@@ -12,8 +12,12 @@ export default {
   theme: {
     extend: {
       colors: {
+        primary: "#F15A29",
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },
+      fontFamily: {
+        nunito: ["var(--font-nunito)"],
       },
     },
   },
