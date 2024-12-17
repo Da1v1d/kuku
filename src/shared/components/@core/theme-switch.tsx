@@ -2,6 +2,7 @@
 import { Button } from "@/shared/components/buttons";
 import useClient from "@/shared/hooks/use-client";
 import useTheme from "@/shared/hooks/use-theme";
+import { Moon, Sun } from "lucide-react";
 
 const ThemeSwitcher = () => {
   const { theme, toggleTheme } = useTheme();
@@ -11,11 +12,11 @@ const ThemeSwitcher = () => {
     return null;
   }
 
+  const Icon = theme === "dark" ? Moon : Sun;
   return (
-    <div>
-      The current theme is: {theme}
-      <Button isIconOnly onClick={toggleTheme}></Button>
-    </div>
+    <Button color="default" isIconOnly onClick={toggleTheme}>
+      <Icon />
+    </Button>
   );
 };
 
