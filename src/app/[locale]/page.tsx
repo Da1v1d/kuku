@@ -35,7 +35,7 @@ export default function Home() {
         </div>
       </Card>
       <ThemeSwitcher />
-      <OptimisticButton isIcon onClick={onClick}>
+      <OptimisticButton  isIcon onClick={onClick}>
         {({ isActive }) => (
           <HeartIcon fill={isActive ? "red" : "transparent"} />
         )}

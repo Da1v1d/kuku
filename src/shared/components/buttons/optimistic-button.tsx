@@ -10,8 +10,6 @@ interface IProps
   onClick?: (event: MouseEvent<HTMLButtonElement>) => Promise<void> | void;
 
   initialActive?: boolean;
-  activeComponent?: React.ReactNode;
-  inactiveComponent?: React.ReactNode;
   isIcon?: boolean;
   children?: (props: {
     isActive?: boolean;

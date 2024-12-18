@@ -17,7 +17,7 @@ interface ExtendedCardProps extends PropsWithChildren<CardProps> {
   footerProps?: CardProps;
 }
 
-const CustomCard = ({
+const Card = ({
   children,
   header,
   footer,
@@ -26,13 +26,16 @@ const CustomCard = ({
   className,
   ...props
 }: ExtendedCardProps) => {
+  const showHeader = !!header;
+  const showFooter = !!footer;
+
   return (
     <NexCard className={cn("p-2", className)} {...props}>
-      {!!header && <CardHeader {...headerProps}>{header}</CardHeader>}
+      {showHeader && <CardHeader {...headerProps}>{header}</CardHeader>}
       <CardBody>{children}</CardBody>
-      {!!footer && <CardFooter {...footerProps}>{footer}</CardFooter>}
+      {showFooter && <CardFooter {...footerProps}>{footer}</CardFooter>}
     </NexCard>
   );
 };
 
-export default CustomCard;
+export default Card;
