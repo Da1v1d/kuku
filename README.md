@@ -16,21 +16,38 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Code Styles
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Global concepts
 
-## Learn More
+```bash
+const t = useTranslation()
+const router = useRouter()
+```
 
-To learn more about Next.js, take a look at the following resources:
+2. Global States
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+const state = useAppStore()
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Queries, fetching data or custom Hooks
 
-## Deploy on Vercel
+```bash
+const {data} = useQuery()
+const customData = useCustomHook()
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. State, ref and data
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+const [state,setState] = useState()
+const ref = useRef()
+const data = state + 5
+```
+
+5. LifeCycle Hooks
+
+```bash
+useEffect(() => {},[])
+```

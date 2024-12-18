@@ -19,6 +19,9 @@ export default {
       fontFamily: {
         nunito: ["var(--font-nunito)"],
       },
+      dropShadow: {
+        primary: "0 5px 25px #F15A29",
+      },
     },
   },
   darkMode: "class",
