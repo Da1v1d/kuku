@@ -2,7 +2,7 @@ import { cn } from "@nextui-org/theme";
 import { ComponentProps } from "react";
 import Button from "./button";
 
-interface IProps extends ComponentProps<typeof Button> {}
+interface IProps extends Omit<ComponentProps<typeof Button>, "isIconOnly"> {}
 
 const IconButton = ({ className, ...props }: IProps) => {
   return (
