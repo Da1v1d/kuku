@@ -46,7 +46,13 @@ const ref = useRef()
 const data = state + 5
 ```
 
-5. LifeCycle Hooks
+5. Functions 
+
+```bash
+const func = () => {}
+```
+
+6. LifeCycle Hooks
 
 ```bash
 useEffect(() => {},[])
