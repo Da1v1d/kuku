@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@/shared/components/buttons";
+import { Button } from "@/shared/ui/buttons";
 import useClient from "@/shared/hooks/use-client";
 import useTheme from "@/shared/hooks/use-theme";
 import { Moon, Sun } from "lucide-react";

@@ -8,32 +8,31 @@ import {
   cn,
   Card as NexCard,
 } from "@nextui-org/react";
-import { PropsWithChildren } from "react";
 
-interface ExtendedCardProps extends PropsWithChildren<CardProps> {
-  header?: React.ReactNode;
-  footer?: React.ReactNode;
+interface IProps extends CardProps {
+  headerContent?: React.ReactNode;
+  footerContent?: React.ReactNode;
   headerProps?: CardProps;
   footerProps?: CardProps;
 }
 
 const Card = ({
   children,
-  header,
-  footer,
+  headerContent,
+  footerContent,
   headerProps,
   footerProps,
   className,
   ...props
-}: ExtendedCardProps) => {
-  const showHeader = !!header;
-  const showFooter = !!footer;
+}: IProps) => {
+  const showHeader = !!headerContent;
+  const showFooter = !!footerContent;
 
   return (
     <NexCard className={cn("p-2", className)} {...props}>
-      {showHeader && <CardHeader {...headerProps}>{header}</CardHeader>}
+      {showHeader && <CardHeader {...headerProps}>{headerContent}</CardHeader>}
       <CardBody>{children}</CardBody>
-      {showFooter && <CardFooter {...footerProps}>{footer}</CardFooter>}
+      {showFooter && <CardFooter {...footerProps}>{footerContent}</CardFooter>}
     </NexCard>
   );
 };

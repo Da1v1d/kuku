@@ -1,5 +1,5 @@
-import { Button } from "@/shared/components/buttons";
-import IconButton from "@/shared/components/buttons/icon-button";
+import { Button } from "@/shared/ui/buttons";
+import IconButton from "@/shared/ui/buttons/icon-button";
 import { ComponentProps, MouseEvent, MouseEventHandler, useState } from "react";
 
 interface IProps
@@ -23,17 +23,17 @@ const OptimisticButton = ({
   isIcon,
   ...props
 }: IProps) => {
-  const [active, setActive] = useState(initialActive);
+  const [isActive, setIsActive] = useState(initialActive);
 
   const Component = isIcon ? IconButton : Button;
 
   const clickHandler: MouseEventHandler<HTMLButtonElement> = async (event) => {
-    setActive((prev) => !prev);
+    setIsActive((prev) => !prev);
 
     try {
       await onClick?.(event);
     } catch {
-      setActive(false);
+      setIsActive(false);
     }
   };
 
@@ -41,7 +41,7 @@ const OptimisticButton = ({
     <Component onClick={clickHandler} {...props}>
       {typeof children === "function"
         ? children({
-            isActive: active,
+            isActive,
           })
         : children}
     </Component>

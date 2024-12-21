@@ -1,13 +1,15 @@
 "use client";
 
-import ThemeSwitcher from "@/shared/components/@core/theme-switch";
-import { Button, OptimisticButton } from "@/shared/components/buttons";
-import { Card } from "@/shared/components/cards";
-import { Modal } from "@/shared/components/modals";
-import { Select, SelectItem } from "@/shared/components/selects";
-import Text from "@/shared/components/texts/text";
-import HeartIcon from "@/shared/icons/heart-icon";
 import { wait } from "@/shared/lib/utils";
+import ThemeSwitcher from "@/shared/ui/@core/theme-switch";
+import { Button, OptimisticButton } from "@/shared/ui/buttons";
+import { Card } from "@/shared/ui/cards";
+import HeartIcon from "@/shared/ui/icons/heart-icon";
+import { Modal } from "@/shared/ui/modals";
+import { Select, SelectItem } from "@/shared/ui/selects";
+import { Switch } from "@/shared/ui/switch";
+import Text from "@/shared/ui/texts/text";
+import Tooltip from "@/shared/ui/tooltip/tooltip";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 // import { Select, SelectItem } from "@nextui-org/react";
@@ -25,7 +27,7 @@ export default function Home() {
   };
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center max-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <Text className="text-4xl font-extrabold text-primary drop-shadow-primary">
         Kuku
       </Text>
@@ -35,7 +37,11 @@ export default function Home() {
         </div>
       </Card>
       <ThemeSwitcher />
-      <OptimisticButton  isIcon onClick={onClick}>
+      <Tooltip isOpen delay={100} content="Tooltip">
+        Tooltip
+      </Tooltip>
+      <Switch />
+      <OptimisticButton isIcon onClick={onClick}>
         {({ isActive }) => (
           <HeartIcon fill={isActive ? "red" : "transparent"} />
         )}
