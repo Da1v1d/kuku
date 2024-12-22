@@ -31,7 +31,7 @@ export default function Home() {
       <Text className="text-4xl font-extrabold text-primary drop-shadow-primary">
         Kuku
       </Text>
-      <Card isHoverable isPressable header={<div></div>}>
+      <Card isHoverable isPressable headerContent={<div></div>}>
         <div className="w-full h-full">
           <h1 className="text-2xl font-semibold">{t("general.welcome")}</h1>
         </div>
