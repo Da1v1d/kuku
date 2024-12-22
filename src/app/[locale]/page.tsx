@@ -5,6 +5,7 @@ import ThemeSwitcher from "@/shared/ui/@core/theme-switch";
 import { Button, OptimisticButton } from "@/shared/ui/buttons";
 import { Card } from "@/shared/ui/cards";
 import HeartIcon from "@/shared/ui/icons/heart-icon";
+import { Image } from "@/shared/ui/images";
 import { Modal } from "@/shared/ui/modals";
 import { Select, SelectItem } from "@/shared/ui/selects";
 import { Switch } from "@/shared/ui/switch";
@@ -27,10 +28,11 @@ export default function Home() {
   };
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center max-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center  p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <Text className="text-4xl font-extrabold text-primary drop-shadow-primary">
         Kuku
       </Text>
+      <Image src="https://placehold.co/600x400/black/F15A29" />
       <Card isHoverable isPressable headerContent={<div></div>}>
         <div className="w-full h-full">
           <h1 className="text-2xl font-semibold">{t("general.welcome")}</h1>
