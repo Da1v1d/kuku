@@ -2,7 +2,6 @@
 
 import { wait } from "@/shared/lib/utils";
 import ThemeSwitcher from "@/shared/ui/@core/theme-switch";
-import Accordion from "@/shared/ui/accordion/accordion";
 import { Button, OptimisticButton } from "@/shared/ui/buttons";
 import { Card } from "@/shared/ui/cards";
 import HeartIcon from "@/shared/ui/icons/heart-icon";
@@ -11,7 +10,9 @@ import { Input, InputOtp } from "@/shared/ui/inputs";
 import { Flex } from "@/shared/ui/layout";
 import { Modal } from "@/shared/ui/modals";
 import { Select, SelectItem } from "@/shared/ui/selects";
+import { Skeleton } from "@/shared/ui/skeleton";
 import { Switch } from "@/shared/ui/switch";
+import { Tab, Tabs } from "@/shared/ui/tabs";
 import Text from "@/shared/ui/texts/text";
 import Tooltip from "@/shared/ui/tooltip/tooltip";
 import { useTranslations } from "next-intl";
@@ -22,6 +23,7 @@ const options = [{ label: "Option 1", key: "1" }];
 
 export default function Home() {
   const [open, setOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const t = useTranslations();
 
@@ -30,39 +32,48 @@ export default function Home() {
     throw new Error("Test error");
   };
 
+  let tabs = [
+    {
+      id: "photos",
+      label: "Photos",
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    },
+    {
+      id: "music",
+      label: "Music",
+      content:
+        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    },
+    {
+      id: "videos",
+      label: "Videos",
+      content:
+        "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    },
+  ];
+
   return (
     <div className="flex flex-col items-center justify-center  p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <Text className="text-4xl font-extrabold text-primary drop-shadow-primary">
         Kuku
       </Text>
-      <Accordion.Root items={[1, 2, 3]} variant="splitted">
-        <Accordion.Item title="Item 1" subtitle="Subtitle 1">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta, non?
-          Hic unde mollitia expedita dolorem suscipit sequi sit similique nulla
-          aliquid, minus laboriosam autem quas provident quidem perferendis eius
-          magni. Aliquam dignissimos illum rem ad autem sapiente vitae magnam
-          neque! Veniam hic suscipit voluptates eveniet perferendis cumque
-          adipisci sunt iste. Eum tempora esse minima consequuntur! Cumque
-          numquam vitae dignissimos perferendis? Quibusdam quae laborum
-          provident nesciunt sit dolorum maiores necessitatibus neque. Non
-        </Accordion.Item>
-        <Accordion.Item title="Item 1" subtitle="Subtitle 1">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta, non?
-          Hic unde mollitia expedita dolorem suscipit sequi sit similique nulla
-          aliquid, minus laboriosam autem quas provident quidem perferendis eius
-          magni. Aliquam dignissimos illum rem ad autem sapiente vitae magnam
-          neque! Veniam hic suscipit voluptates eveniet perferendis cumque
-          adipisci sunt iste. Eum tempora esse minima consequuntur! Cumque
-        </Accordion.Item>
-      </Accordion.Root>
-      <Flex className="flex-row flex-wrap gap-y-8 justify-between">
+      <Flex className="flex-row flex-wrap gap-8 justify-between">
         {[...Array(10)].map((_, index) => (
-          <Image
-            className="cursor-pointer"
+          <Skeleton
+            className="rounded-xl w-[400px] h-[300px]"
             key={index}
-            isZoomed
-            src={`https://picsum.photos/400/300?random=${index}`}
-          />
+            isLoaded={!isLoading}
+          >
+            <Image
+              onLoad={() => setIsLoading(false)}
+              isLoading={isLoading}
+              className="cursor-pointer"
+              key={index}
+              isZoomed
+              src={`https://picsum.photos/400/300?random=${index}`}
+            />
+          </Skeleton>
         ))}
       </Flex>
       <Input label="Input" placeholder="Input" />
@@ -72,6 +83,21 @@ export default function Home() {
           <h1 className="text-2xl font-semibold">{t("general.welcome")}</h1>
         </div>
       </Card>
+      <div className="w-full">
+        
+        <Tabs className="w-full" items={tabs}>
+          {(item) => (
+            <Tab
+              className="data-[focus-visible=true]:outline-0"
+              key={item.id}
+              title={item.label}
+            >
+              <Card>{item.content}</Card>
+            </Tab>
+          )}
+        </Tabs>
+      </div>
+
       <ThemeSwitcher />
       <Tooltip delay={100} content="Tooltip">
         Tooltip
