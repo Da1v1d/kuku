@@ -5,7 +5,7 @@ interface IProps extends ButtonProps {}
 const Button = ({ children, className, ...props }: IProps) => {
   return (
     <NextButton
-      className={cn("font-semibold capitalize", className)}
+      className={cn("font-semibold uppercase", className)}
       color="primary"
       variant="shadow"
       {...props}

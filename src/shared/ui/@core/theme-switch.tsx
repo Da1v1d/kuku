@@ -13,6 +13,7 @@ const ThemeSwitcher = () => {
   }
 
   const Icon = theme === "dark" ? Moon : Sun;
+  
   return (
     <Button color="default" isIconOnly onClick={toggleTheme}>
       <Icon />
