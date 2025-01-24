@@ -27,6 +27,7 @@
     "react-dom": "^19.0.0",
     "react-i18next": "^15.2.0",
     "tailwind-merge": "^2.5.5",
+    "use-sound": "^4.0.3",
     "zustand": "^5.0.2"
   },
   "devDependencies": {

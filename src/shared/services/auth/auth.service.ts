@@ -1,7 +1,7 @@
-class UserSessionService {
+class AuthService {
   public static getAccessToken() {
     return localStorage.getItem("accessToken");
   }
 }
 
-export default UserSessionService;
+export default AuthService;

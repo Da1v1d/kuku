@@ -61,7 +61,7 @@ export default function Home() {
       <Flex className="flex-row flex-wrap gap-8 justify-between">
         {[...Array(10)].map((_, index) => (
           <Skeleton
-            className="rounded-xl w-[400px] h-[300px]"
+            className="rounded-2xl w-[400px] h-[300px]"
             key={index}
             isLoaded={!isLoading}
           >
