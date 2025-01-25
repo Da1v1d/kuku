@@ -132,54 +132,47 @@ export abstract class BaseService {
   /**
    * Generic GET request method.
    */
-  protected async get<T>(url: string, config?: AxiosRequestConfig): Promise<T> {
+  public async get<T>(url: string, config?: AxiosRequestConfig): Promise<T> {
     return this.api.get<T>(url, config).then(this.handleResponse);
   }
 
   /**
    * Generic POST request method.
    */
-  protected async post<T, D = unknown>(
+  public async post<T, D = unknown>(
     url: string,
     payload?: D,
     config?: AxiosRequestConfig
   ): Promise<T> {
-    const { data } = await this.api.post<T>(url, payload, config);
-    return data;
+    return this.api.post<T>(url, payload, config).then(this.handleResponse);
   }
 
   /**
    * Generic PUT request method.
    */
-  protected async put<T, D = unknown>(
+  public async put<T, D = unknown>(
     url: string,
     payload?: D,
     config?: AxiosRequestConfig
   ): Promise<T> {
-    const { data } = await this.api.put<T>(url, payload, config);
-    return data;
+    return this.api.put<T>(url, payload, config).then(this.handleResponse);
   }
 
   /**
    * Generic PATCH request method.
    */
-  protected async patch<T, D = unknown>(
+  public async patch<T, D = unknown>(
     url: string,
     payload?: D,
     config?: AxiosRequestConfig
   ): Promise<T> {
-    const { data } = await this.api.patch<T>(url, payload, config);
-    return data;
+    return this.api.patch<T>(url, payload, config).then(this.handleResponse);
   }
 
   /**
    * Generic DELETE request method.
    */
-  protected async delete<T>(
-    url: string,
-    config?: AxiosRequestConfig
-  ): Promise<T> {
-    const { data } = await this.api.delete<T>(url, config);
-    return data;
+  public async delete<T>(url: string, config?: AxiosRequestConfig): Promise<T> {
+    return this.api.delete<T>(url, config).then(this.handleResponse);
   }
 }

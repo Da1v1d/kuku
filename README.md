@@ -25,10 +25,11 @@ const t = useTranslation()
 const router = useRouter()
 ```
 
-2. Global States
+2. Global States, can be also regulat state if needed create before queries
 
 ```bash
 const state = useAppStore()
+const [state,setState] = useState()
 ```
 
 3. Queries, fetching data or custom Hooks

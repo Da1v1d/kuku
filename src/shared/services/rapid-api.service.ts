@@ -21,11 +21,6 @@ export abstract class RapiApiService extends BaseService {
       (error: AxiosError) => Promise.reject(error)
     );
 
-    // You could also add another response interceptor (optional):
   }
-
-  // You can add custom methods here if desired, or just use
-  // the generic GET/POST/PUT/PATCH/DELETE from BaseService.
 }
 
-// Optionally export a singleton:
