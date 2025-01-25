@@ -7,7 +7,7 @@ import {
   CardProps,
   cn,
   Card as NexCard,
-} from "@nextui-org/react";
+} from "@heroui/react";
 
 interface IProps extends CardProps {
   headerContent?: React.ReactNode;

@@ -17,7 +17,7 @@ import Text from "@/shared/ui/texts/text";
 import Tooltip from "@/shared/ui/tooltip/tooltip";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
-// import { Select, SelectItem } from "@nextui-org/react";
+// import { Select, SelectItem } from "@heroui/react";
 
 const options = [{ label: "Option 1", key: "1" }];
 
@@ -84,7 +84,6 @@ export default function Home() {
         </div>
       </Card>
       <div className="w-full">
-        
         <Tabs className="w-full" items={tabs}>
           {(item) => (
             <Tab
@@ -104,7 +103,7 @@ export default function Home() {
       </Tooltip>
       <Switch />
       <OptimisticButton isIcon onClick={onClick}>
-        {({ isActive }) => (
+        {(isActive) => (
           <HeartIcon fill={isActive ? "red" : "transparent"} />
         )}
       </OptimisticButton>

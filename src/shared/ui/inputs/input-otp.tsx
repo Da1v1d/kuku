@@ -1,4 +1,4 @@
-import { InputOtpProps, InputOtp as NextInputOtp } from "@nextui-org/react";
+import { InputOtpProps, InputOtp as NextInputOtp } from "@heroui/react";
 
 interface IProps extends Omit<InputOtpProps, "length"> {
   length?: number;

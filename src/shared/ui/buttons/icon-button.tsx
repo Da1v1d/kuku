@@ -1,4 +1,4 @@
-import { cn } from "@nextui-org/theme";
+import { cn } from "@heroui/theme";
 import { ComponentProps } from "react";
 import Button from "./button";
 

@@ -1,4 +1,4 @@
-import { Skeleton as NextSkeleton, SkeletonProps } from "@nextui-org/react";
+import { Skeleton as NextSkeleton, SkeletonProps } from "@heroui/react";
 
 interface IProps extends SkeletonProps {}
 

@@ -1,4 +1,4 @@
-import { Tooltip as NextTooltip, TooltipProps } from "@nextui-org/react";
+import { Tooltip as NextTooltip, TooltipProps } from "@heroui/react";
 
 interface IProps extends TooltipProps {}
 

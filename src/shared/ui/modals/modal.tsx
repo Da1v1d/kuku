@@ -4,7 +4,7 @@ import {
   ModalHeader,
   ModalProps,
   Modal as NextModal,
-} from "@nextui-org/react";
+} from "@heroui/react";
 
 interface IProps extends ModalProps {
   header?: React.ReactNode;

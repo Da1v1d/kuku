@@ -4,7 +4,7 @@ import {
   Accordion as NextAccordion,
   AccordionItem as NextAccordionItem,
   type AccordionProps,
-} from "@nextui-org/react";
+} from "@heroui/react";
 
 const Accordion = (props: AccordionProps) => {
   return <NextAccordion {...props} />;

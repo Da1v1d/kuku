@@ -1,19 +1,17 @@
+import { TODO } from "@/shared/lib/types";
 import { Button } from "@/shared/ui/buttons";
 import IconButton from "@/shared/ui/buttons/icon-button";
-import { ComponentProps, MouseEvent, MouseEventHandler, useState } from "react";
+import { ComponentProps, MouseEvent, useState } from "react";
 
 interface IProps
   extends Omit<
     ComponentProps<typeof Button>,
-    "children" | "onClick" | "isIconOnly"
+    "children" | "onPress" | "isIconOnly"
   > {
   onClick?: (event: MouseEvent<HTMLButtonElement>) => Promise<void> | void;
-
   initialActive?: boolean;
   isIcon?: boolean;
-  children?: (props: {
-    isActive?: boolean;
-  }) => React.ReactNode | React.ReactNode;
+  children?: (isActive?: boolean) => React.ReactNode | React.ReactNode;
 }
 
 const OptimisticButton = ({
@@ -27,7 +25,7 @@ const OptimisticButton = ({
 
   const Component = isIcon ? IconButton : Button;
 
-  const clickHandler: MouseEventHandler<HTMLButtonElement> = async (event) => {
+  const clickHandler = async (event: TODO) => {
     setIsActive((prev) => !prev);
 
     try {
@@ -38,12 +36,8 @@ const OptimisticButton = ({
   };
 
   return (
-    <Component onClick={clickHandler} {...props}>
-      {typeof children === "function"
-        ? children({
-            isActive,
-          })
-        : children}
+    <Component onPress={clickHandler} {...props}>
+      {typeof children === "function" ? children(isActive) : children}
     </Component>
   );
 };

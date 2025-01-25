@@ -1,4 +1,4 @@
-import { ImageProps, Image as NextImage } from "@nextui-org/react";
+import { ImageProps, Image as NextImage } from "@heroui/react";
 
 interface IProps extends ImageProps {}
 

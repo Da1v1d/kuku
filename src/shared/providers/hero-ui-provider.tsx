@@ -1,6 +1,6 @@
 "use client";
 
-import { NextUIProvider } from "@nextui-org/react";
+import { HeroUIProvider } from "@heroui/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { PropsWithChildren } from "react";
 
@@ -9,11 +9,11 @@ type Props = PropsWithChildren;
 const UIProvider = ({ children }: Props) => {
   return (
     <main suppressHydrationWarning>
-      <NextUIProvider>
+      <HeroUIProvider>
         <NextThemesProvider attribute="class" defaultTheme="dark">
           {children}
         </NextThemesProvider>
-      </NextUIProvider>
+      </HeroUIProvider>
     </main>
   );
 };

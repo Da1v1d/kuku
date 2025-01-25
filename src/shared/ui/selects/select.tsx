@@ -5,7 +5,7 @@ import {
   SelectItem as NextSelectItem,
   SelectItemProps,
   SelectProps,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import { ReactElement } from "react";
 
 type Props<T extends object> = SelectProps<T>;

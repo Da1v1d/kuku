@@ -1,4 +1,4 @@
-import { Switch as NextSwitch, SwitchProps } from "@nextui-org/react";
+import { Switch as NextSwitch, SwitchProps } from "@heroui/react";
 
 interface IProps extends SwitchProps {}
 

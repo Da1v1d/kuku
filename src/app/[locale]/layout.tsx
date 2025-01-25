@@ -1,8 +1,8 @@
 import "@/app/globals.css";
 import I18nProvider from "@/shared/providers/i18-provider";
-import UIProvider from "@/shared/providers/next-ui-provider";
+import UIProvider from "@/shared/providers/hero-ui-provider";
 import QueryProvider from "@/shared/providers/query-provider";
-import { cn } from "@nextui-org/theme";
+import { cn } from "@heroui/theme";
 import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import { Nunito } from "next/font/google";
