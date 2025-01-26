@@ -13,6 +13,8 @@ export default {
     extend: {
       colors: {
         primary: "#F15A29",
+        "primary-light": "#F47B54",
+        "primary-dark": "#C14821",
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
@@ -21,6 +23,8 @@ export default {
       },
       dropShadow: {
         primary: "0 5px 25px #F15A29",
+        "primary-light": "#F47B54",
+        "primary-dark": "#C14821",
       },
     },
   },
