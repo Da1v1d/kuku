@@ -6,6 +6,10 @@ export type Maybe<T> = {
   [K in keyof T]?: Nullable<T[K]>;
 };
 
+export type Selector<T> = {
+  [K in keyof T]: (state: T) => T[K];
+};
+
 export type DeezerListResponse<T> = {
   data: T[];
   total: number;

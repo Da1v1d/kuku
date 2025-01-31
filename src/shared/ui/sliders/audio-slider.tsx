@@ -16,9 +16,9 @@ const AudioSlider = ({ duration, progress, ...props }: IProps) => {
       classNames={{
         base: "w-full group ",
         track:
-          "w-full h-[2px] group-hover:h-[4px] transition-height ease-in-out",
+          " h-[2px] group-hover:h-[4px] transition-height ease-in-out hover:cursor-pointer",
         thumb:
-          "bg-primary invisible group-hover:visible bg-primary after:hidden w-4 h-4 bg-white",
+          "bg-primary invisible hover:cursor-pointer group-hover:visible bg-primary after:hidden w-4 h-4 bg-white",
         // filler: "bg-gradient-to-r from-red-400  to-blue-400",
       }}
       minValue={0}

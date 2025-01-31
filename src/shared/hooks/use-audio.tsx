@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import useSound from "use-sound";
 
 export declare type SpriteMap = {
@@ -108,6 +109,11 @@ export interface HowlOptions extends HowlCallbacks {
 
 const useAudio = (url: string, options?: HookOptions<HowlOptions>) => {
   const [play, { ...rest }] = useSound(url, options);
+
+  useEffect(() => {
+    rest.sound?.unload();
+  }, [url]);
+
   return { play, ...rest };
 };
 

@@ -1,3 +1,4 @@
+import { PRIMARY_COLOR } from "@/shared/configs/theme.config";
 import { heroui } from "@heroui/react";
 import type { Config } from "tailwindcss";
 
@@ -12,7 +13,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#F15A29",
+        primary: PRIMARY_COLOR,
         "primary-light": "#F47B54",
         "primary-dark": "#C14821",
         background: "var(--background)",
