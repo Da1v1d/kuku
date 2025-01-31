@@ -9,9 +9,15 @@ export class SearchApi {
 
   public static SEARCH_QUERY_KEY = "search";
 
-  public static search = async (query: string) => {
+  public static search = async ({
+    query,
+    next,
+  }: {
+    query?: string;
+    next?: string;
+  }) => {
     return DeezerService.get<DeezerListResponse<SearchResponse>>(
-      `/search?q=${query}`
+      next ? next : `/search?q=${query}`
     );
   };
 }

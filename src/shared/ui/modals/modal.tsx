@@ -6,9 +6,10 @@ import {
   Modal as NextModal,
 } from "@heroui/react";
 
-interface IProps extends ModalProps {
+interface IProps extends Omit<ModalProps, "children"> {
   header?: React.ReactNode;
-  footer?: React.ReactNode;
+  footer?: (onClose: () => void) => React.ReactNode;
+  children?: ((onClose?: () => void) => React.ReactNode) | React.ReactNode;
 }
 
 const Modal = ({ header, footer, isOpen, children, ...props }: IProps) => {
@@ -23,8 +24,8 @@ const Modal = ({ header, footer, isOpen, children, ...props }: IProps) => {
                   {header}
                 </ModalHeader>
               )}
-              {children}
-              {!!footer && <ModalFooter>{footer}</ModalFooter>}
+              {typeof children === "function" ? children?.(onClose) : children}
+              {!!footer && <ModalFooter>{footer?.(onClose)}</ModalFooter>}
             </>
           )}
         </ModalContent>

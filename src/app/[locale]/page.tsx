@@ -15,6 +15,7 @@ import { Switch } from "@/shared/ui/switch";
 import { Tab, Tabs } from "@/shared/ui/tabs";
 import Text from "@/shared/ui/texts/text";
 import Tooltip from "@/shared/ui/tooltip/tooltip";
+import { useDisclosure } from "@heroui/react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 // import { Select, SelectItem } from "@heroui/react";
@@ -24,6 +25,8 @@ const options = [{ label: "Option 1", key: "1" }];
 export default function Home() {
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+
+  const { onOpen, onClose, isOpen } = useDisclosure();
 
   const t = useTranslations();
 
@@ -103,9 +106,7 @@ export default function Home() {
       </Tooltip>
       <Switch />
       <OptimisticButton isIcon onClick={onClick}>
-        {(isActive) => (
-          <HeartIcon fill={isActive ? "red" : "transparent"} />
-        )}
+        {(isActive) => <HeartIcon fill={isActive ? "red" : "transparent"} />}
       </OptimisticButton>
       <Select
         classNames={{
@@ -121,11 +122,13 @@ export default function Home() {
           </SelectItem>
         )}
       </Select>
-      <Button>ok</Button>
+      <Button onPress={onOpen}>ok</Button>
       <Modal
-        isOpen={false}
+        isOpen={isOpen}
+        onClose={onClose}
         classNames={{
           backdrop: "bg-black/50",
+          base: "p-12",
         }}
       >
         <div className="w-12 h-12"></div>

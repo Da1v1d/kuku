@@ -6,15 +6,37 @@ import PauseIcon from "@/shared/icons/pause-icon";
 import PlayIcon from "@/shared/icons/play-icon";
 import { TODO } from "@/shared/lib/types";
 import IconButton from "@/shared/ui/buttons/icon-button";
+import { Card } from "@/shared/ui/cards";
+import { Image } from "@/shared/ui/images";
 import { AudioSlider } from "@/shared/ui/sliders";
-import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useEffect, useRef, useState } from "react";
 
 const Search = () => {
-  const search = useQuery({
-    queryFn: () => SearchApi.search("eminem"),
+  const queryClient = useQueryClient();
+  const next = useRef("");
+
+  const { data, refetch, promise } = useQuery({
+    queryFn: () => SearchApi.search({ query: "macan" }),
     queryKey: [SearchApi.SEARCH_QUERY_KEY],
+    structuralSharing(oldData: TODO, newData: TODO) {
+      next.current = newData.next;
+      return newData;
+    },
   });
+
+  next.current = data?.next || "";
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      queryClient.prefetchQuery({
+        queryKey: [SearchApi.SEARCH_QUERY_KEY],
+        queryFn: () => SearchApi.search({ next: next.current }),
+      });
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -39,9 +61,30 @@ const Search = () => {
 
   const durationSeconds = duration ? Math.round(duration / 1000) : 0;
 
-  console.log(isPlaying);
   return (
-    <div className="p-4 min-h-screen">
+    <div className="p-4 min-h-screen space-y-4">
+      {data?.data?.map((item) => (
+        <Card
+          isPressable
+          className="w-[240px] h-[240px] p-0 relative"
+          classNames={{
+            body: " p-0 ",
+            header: "p-2 absolute z-10 top-1 text-white",
+          }}
+          key={item.id}
+          headerContent={
+            <p className="bg-white py-1 px-2 rounded-lg text-black">
+              {item.title}
+            </p>
+          }
+        >
+          <Image
+            removeWrapper
+            className="object-cover z-0 w-full h-full "
+            src={item.album.cover_big}
+          />
+        </Card>
+      ))}
       <div className="flex items-center gap-2">
         <IconButton onPress={onPlay}>
           {isPlaying ? (

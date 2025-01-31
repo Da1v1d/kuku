@@ -1,11 +1,12 @@
 "use client";
 
+import { cn } from "@/shared/lib/utils";
 import {
   CardBody,
   CardFooter,
+  CardFooterProps,
   CardHeader,
   CardProps,
-  cn,
   Card as NexCard,
 } from "@heroui/react";
 
@@ -13,7 +14,7 @@ interface IProps extends CardProps {
   headerContent?: React.ReactNode;
   footerContent?: React.ReactNode;
   headerProps?: CardProps;
-  footerProps?: CardProps;
+  footerProps?: CardFooterProps;
 }
 
 const Card = ({
