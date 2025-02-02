@@ -9,6 +9,7 @@ import PauseIcon from "@/shared/icons/pause-icon";
 import PlayIcon from "@/shared/icons/play-icon";
 import { TODO } from "@/shared/lib/types";
 import IconButton from "@/shared/ui/buttons/icon-button";
+import { Card } from "@/shared/ui/cards";
 import { AudioSlider } from "@/shared/ui/sliders";
 import { cn } from "@heroui/theme";
 import { useEffect, useState } from "react";
@@ -32,10 +33,11 @@ const MusicPlayer = () => {
     },
     onload: () => {
       setIsLoaded(true);
+      play();
     },
 
     onloaderror: () => {
-      setIsPlaying(false);
+      // setIsPlaying(false);
     },
     loop: true,
     autoplay: true,
@@ -57,15 +59,18 @@ const MusicPlayer = () => {
   // }, [isOpen]);
 
   return (
-    <div
-      className={cn(
-        "fixed flex w-full p-4 bottom-0 left-0 right-0 h-20  bg-[#171717] z-50",
-        {
-          hidden: !isOpen,
-        }
-      )}
+    <Card
+      classNames={{
+        base: cn(
+          "fixed flex w-full p-4 rounded-none bottom-0 left-0 right-0 h-20  z-50",
+          {
+            hidden: !isOpen,
+          }
+        ),
+        body: "flex flex-row w-full items-center gap-2",
+      }}
     >
-      <div className="flex w-full items-center gap-2">
+      <>
         <IconButton onPress={onPlay}>
           {isPlaying ? (
             <PauseIcon className="animate-appearance-in duration-500" />
@@ -81,8 +86,8 @@ const MusicPlayer = () => {
           sound={sound}
           isPlaying={isPlaying}
         />
-      </div>
-    </div>
+      </>
+    </Card>
   );
 };
 

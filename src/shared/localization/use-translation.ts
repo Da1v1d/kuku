@@ -1,6 +1,6 @@
-import { useTranslation as NextUseTranslation } from "react-i18next";
+import { useTranslations as NextUseTranslation } from "next-intl";
 
-const useTranslation = (groupName?: string[]) => {
+const useTranslation = <T extends string>(groupName?: string) => {
   return NextUseTranslation(groupName);
 };
 
