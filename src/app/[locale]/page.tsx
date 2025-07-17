@@ -57,8 +57,8 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center  p-8 pb-20 gap-16 sm:p-20 font-(family-name:--font-geist-sans)">
-      <Text className="text-4xl font-extrabold text-primary drop-shadow-primary">
+    <div className="flex flex-col items-center justify-center  p-12 pb-20 gap-16 sm:p-20">
+      <Text className="text-4xl font-extrabold text-primary drop-shadow-primary drop-shadow-sm">
         Kuku
       </Text>
       <Flex className="flex-row flex-wrap gap-8 justify-between">
@@ -87,10 +87,18 @@ export default function Home() {
         </div>
       </Card>
       <div className="w-full">
-        <Tabs className="w-full" items={tabs}>
+        <Tabs
+          classNames={
+            {
+              // tabList: "w-[280px]",
+            }
+          }
+          // className="w-full"
+          items={tabs}
+        >
           {(item) => (
             <Tab
-              className="data-[focus-visible=true]:outline-0"
+              // className="data-[focus-visible=true]:outline-0"
               key={item.id}
               title={item.label}
             >
@@ -104,7 +112,7 @@ export default function Home() {
       <Tooltip delay={100} content="Tooltip">
         Tooltip
       </Tooltip>
-      <Switch />
+      <Switch value="selected" />
       <OptimisticButton isIcon onClick={onClick}>
         {(isActive) => <HeartIcon fill={isActive ? "red" : "transparent"} />}
       </OptimisticButton>
@@ -117,7 +125,7 @@ export default function Home() {
         placeholder="Choose one"
       >
         {(item) => (
-          <SelectItem key={item.key} value={item.key}>
+          <SelectItem key={item.key} textValue={item.label}>
             {item.label}
           </SelectItem>
         )}

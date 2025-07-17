@@ -55,9 +55,9 @@ const Search = () => {
           <Card
             onPress={onPress(item.preview)}
             isPressable
-            className="w-[240px] h-[240px] flex-1 p-0 relative hover:cursor-pointer"
+            className="w-[240px] h-[240px]  p-0 relative hover:cursor-pointer"
             classNames={{
-              body: " p-0 ",
+              body: "p-0 ",
               header: "p-2 absolute z-10 top-1 text-white",
             }}
             key={item.id}

@@ -1,11 +1,11 @@
-import { RapiApiService } from "@/shared/services/rapid-api.service";
 import {
   DEEZER_API_HOST,
   DEEZER_API_KEY,
   DEEZER_API_URL,
 } from "@/shared/lib/constants";
+import { RapidApiService } from "@/shared/services/rapid-api.service";
 
-class DeezerServiceInstance extends RapiApiService {
+class DeezerServiceInstance extends RapidApiService {
   constructor() {
     super({
       url: DEEZER_API_URL,

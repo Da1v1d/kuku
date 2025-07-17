@@ -3,9 +3,8 @@ import { TODO } from "@/shared/lib/types";
 import { BaseService } from "@/shared/services/base.service";
 import { AxiosError, AxiosRequestConfig } from "axios";
 
-export abstract class RapiApiService extends BaseService {
+export abstract class RapidApiService extends BaseService {
   constructor({ url, key, host }: { url: string; key: string; host: string }) {
-    // Pass the base URL specific to Rapid API (or any other API you are using)
     super(url);
 
     this.api.interceptors.request.use(
@@ -20,7 +19,5 @@ export abstract class RapiApiService extends BaseService {
       },
       (error: AxiosError) => Promise.reject(error)
     );
-
   }
 }
-

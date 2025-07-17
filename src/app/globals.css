@@ -1,6 +1,19 @@
+@plugin "./hero.ts";
 @import "tailwindcss";
 
+@source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  /* --font-nunito: "Nunito", sans-serif; */
+}
+
+/* 2. Define _only_ your custom tokens with @theme (these also generate matching utilities) */
+
+/* 3. Put all your global resets, mappings, and non-utility vars in the base layer */
+
 :root {
+  /* fold in your mapped vars on top of Tailwind’s own CSS vars */
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -10,16 +23,20 @@
   --foreground: #ededed;
 }
 
+/* apply them globally */
 body {
+  background-color: var(--background);
   color: var(--foreground);
-  background: var(--background);
-  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: var(--font-nunito);
 }
 
-* {
+/* reset */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
-  -webkit-user-select: none;
+  padding: 0;
   user-select: none;
+  -webkit-user-select: none;
 }

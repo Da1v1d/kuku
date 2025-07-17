@@ -40,6 +40,9 @@ export const useMusicPlayerStore = create<
   )
 );
 
+export const selectMusicPlayerIsOpen = (state: MusicPlayerStore) =>
+  state.isOpen;
+
 export const musicplayerSelectors: Selector<
   MusicPlayerStore & MusicPlayerStoreActions
 > = {

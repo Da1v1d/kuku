@@ -1,7 +1,7 @@
 "use client";
 
 import {
-  musicplayerSelectors,
+  selectMusicPlayerIsOpen,
   useMusicPlayerStore,
 } from "@/features/players/model/store/music-player.store";
 import Client from "@/shared/ui/@core/client";
@@ -12,7 +12,7 @@ const WithModalWrapper = ({
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
-  const isOpen = useMusicPlayerStore(musicplayerSelectors.isOpen);
+  const isOpen = useMusicPlayerStore(selectMusicPlayerIsOpen);
 
   return (
     <Client>
